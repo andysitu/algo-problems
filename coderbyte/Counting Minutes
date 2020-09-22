@@ -1,0 +1,56 @@
+function CountingMinutes(str) { 
+
+  var time1, time2;
+  str = str.split("-");
+  time1 = str[0].match(/(\d*):(\d*)(\w*)/);
+  time2 = str[1].match(/(\d*):(\d*)(\w*)/);
+  if (time1[3] == 'pm') {
+    time1 = Number(time1[1])*60 +  Number(time1[2]) + 720;
+  } else {
+      time1 = Number(time1[1])*60 + Number(time1[2]);
+  }
+  if (time2[3] == 'pm') {
+    time2 = Number(time2[1])*60 +  Number(time2[2]) + 720;
+  } else {
+      time2 = Number(time2[1])*60 + Number(time2[2]);
+  }
+
+  if (time2 > time1)
+    return (time2 - time1);
+  else
+    return (1440 - time1 + time2);
+         
+}
+
+
+
+
+
+
+
+
+
+
+function timeStrToMinutes(timeStr) {
+  var amPm = timeStr.slice(-2).toLowerCase();
+  timeStr = timeStr.slice(0,-2);
+  var bits = timeStr.split(':');
+  bits[0] = bits[0]*1;
+  if (bits[0] === 12) {
+    bits[0] = 0;
+  }
+  bits[1] = bits[1]*1;
+  return bits[0] * 60 + bits[1] + (amPm === 'pm' ? 12 * 60 : 0);
+}
+
+function CountingMinutesI(str) { 
+  var times = str.split('-');
+  var time1 = timeStrToMinutes(times[0]);
+  var time2 = timeStrToMinutes(times[1]);
+  if (time2 <= time1) {
+    time2 += 60 * 24;
+  }
+  // code goes here  
+  return time2-time1;
+         
+}
