@@ -32,4 +32,4 @@ class Solution:
         return head
         
 
-s = Solution()
+s = Solution() 

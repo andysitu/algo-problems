@@ -1,0 +1,3 @@
+SELECT Email FROM (SELECT Email, COUNT(Email) as c From Person GROUP BY Email) t where t.C >= 2
+
+SELECT EMAIL FROM PERSON GROUP BY EMAIL HAVING COUNT(*) > 1

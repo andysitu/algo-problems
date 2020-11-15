@@ -1,1 +1,1 @@
-Collection of programming problems I've done now and in the past.
+Fun programming problems
