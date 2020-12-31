@@ -18,7 +18,7 @@ DP
 In the brute force approach, one can see that there are a lot of overlap
 in repeated calculations that you make to get a certain denomination
 and combinations. By saving these results in DP, you can save a lot of time
-at the expense of memory.
+at the expense of memory. You'd also save results that result in null
 Runtime: O()
 """
 
