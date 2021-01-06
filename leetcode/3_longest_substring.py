@@ -1,21 +1,19 @@
-def lengthOfLongestSubstring(s):
-    """
-    :type s: str
-    :rtype: int
-    """
-    longest_len = 0
-    cur_len = 0
-    input_keys = {}
-    i = 0
-    while i < len(s):
-        if s[i] not in input_keys:
-            cur_len += 1
-            if cur_len > longest_len:
-                longest_len = cur_len
-            input_keys[s[i]] = i
-        else:
-            cur_len = 0
-            i = input_keys[s[i]]
-            input_keys = {}
-        i += 1
-    return longest_len
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        cdict = {}
+        maxcount = 0
+        count = 0
+        slen = len(s)
+        prev_i = 0
+        for i in range(slen):
+            c = s[i]
+            if not c in cdict:
+                count += 1
+                cdict[c] = i
+            else:
+                maxcount = max(maxcount, count)
+                prev_i = max(cdict[c], prev_i)
+                count = i-prev_i
+                cdict[c] = i
+        maxcount = max(count, maxcount)
+        return maxcount
