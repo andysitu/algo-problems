@@ -37,7 +37,8 @@ class Solution {
     
     public List<List<Integer>> levelOrder(Node root) {
         l = new ArrayList<>();
-        travel(root, 1);
+        if (root != null)
+            travel(root, 1);
         return l;
     }
 }
